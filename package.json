@@ -1,0 +1,21 @@
+{
+  "name": "casadocodigo",
+  "version": "1.0.0",
+  "description": "Livraria Casa do Codigo",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js --ignore *.marko.js"
+  },
+  "author": "Janaína Carilaine",
+  "license": "ISC",
+  "dependencies": {
+    "event-stream": "^4.0.1",
+    "express": "4.16.3",
+    "marko": "4.13.4-1",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
