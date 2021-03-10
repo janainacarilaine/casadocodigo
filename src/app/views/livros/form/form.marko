@@ -23,9 +23,13 @@
         <main class="conteudoPrincipal">
             <div class="container">
                 <h1>Cadastro de livros</h1>
-                
+                <div if(data.errosValidacao)>
+                    <div class= 'alert alert-danger' for(erro in data.errosValidacao)>
+                       ${erro.msg}
+                    </div>
+                </div>
                 <form action="/livros" method="post">
-
+                    
                     <div if(data.livro.id)>
                         <input type="hidden" name="_method" value="PUT">
                         <input type="hidden" name="id" value="${data.livro.id}">

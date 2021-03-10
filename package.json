@@ -13,6 +13,7 @@
     "body-parser": "^1.19.0",
     "event-stream": "^4.0.1",
     "express": "4.16.3",
+    "express-validator": "^6.10.0",
     "marko": "4.13.4-1",
     "method-override": "^3.0.0",
     "sqlite3": "^5.0.2"
