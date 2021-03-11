@@ -6,6 +6,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 
+const template = require('../app/views/template');
+
 app.use('/estatico', express.static('src/app/public'));
 
 app.use(bodyParser.urlencoded(
@@ -21,23 +23,21 @@ app.use(methodOverride(function (req, res) {
     }
 }));
 
-
+//módulo de lógica de sessão e autenticação
+const sessaoAutenticacao = require('./sessao-autenticacao');
+sessaoAutenticacao(app);
 
 const rotas = require('../app/rotas/rotas');
 rotas(app);
 
 //middleware de pagina nao encontrada
 app.use((req,resp,next) => {
-    return resp.status(404).marko(
-      require('../app/views/base/erros/404.marko')
-    )
+    return resp.status(404).marko(template.base.erro404)
 });
 
 //middleware de tratamento de erro interno
 app.use((erro,req,resp,next) => {
-    return resp.status(500).marko(
-      require('../app/views/base/erros/500.marko')
-    )
+    return resp.status(500).marko(template.base.erro500)
 });
 
 module.exports = app;
